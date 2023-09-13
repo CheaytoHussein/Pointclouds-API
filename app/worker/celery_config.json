@@ -1,0 +1,13 @@
+{
+  "broker_url": "",
+  "result_backend": "",
+  "task_time_limit": "90000",
+  "task_soft_time_limit": "90000",
+  "task_acks_late": "True",
+  "optimization": "fair",
+  "accept_content": [
+    "json"
+  ],
+  "task_serializer": "json",
+  "result_serializer": "json"
+}
