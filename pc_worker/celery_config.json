@@ -1,0 +1,13 @@
+{
+  "broker_url": "amqp://admin:password@rabbitmq-server:5672/",
+  "result_backend": "redis://:password@redis-stack-server:6379/0", 
+  "task_time_limit": "90000",
+  "task_soft_time_limit": "90000",
+  "task_acks_late": "True",
+  "optimization": "fair",
+  "accept_content": [
+    "json"
+  ],
+  "task_serializer": "json",
+  "result_serializer": "json"
+}

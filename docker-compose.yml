@@ -1,0 +1,36 @@
+version: '3'
+services:
+
+  pc_api:
+    build:
+      context: pc_api
+    ports:
+      - '80:80'
+    volumes:
+      - ./pc_api:/app/pc_api
+
+  pc_worker:
+    build:
+      context: pc_worker
+    depends_on:
+      - redis
+    entrypoint: ['./pc_worker_entrypoint.sh']
+
+  redis:
+    image: redis:latest
+    container_name: redis-stack-server
+    environment:
+      - REDIS_PASSWORD=password
+      - REDIS_REQUIREPASS=password
+    ports:
+      - '6379:6379'
+
+  rabbitmq:
+    image: rabbitmq:latest
+    container_name: rabbitmq-server
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASSWORD=password
+    ports:
+      - '5672:5672'
+      - '15672:15672'
