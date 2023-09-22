@@ -12,9 +12,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y wget gnupg curl
 
 RUN python -m pip install --upgrade pip
 
-RUN pip install --no-cache-dir requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ../pc_worker/ .
+COPY ./. .
 
 ENV PYTHONPATH "${PYTHONPATH}:/app/pc_worker"
 

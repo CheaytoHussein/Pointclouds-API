@@ -14,7 +14,7 @@ services:
       context: pc_worker
     depends_on:
       - redis
-    entrypoint: ['./pc_worker_entrypoint.sh']
+    entrypoint: ['./pc_worker/pc_worker_entrypoint.sh']
 
   redis:
     image: redis:latest
